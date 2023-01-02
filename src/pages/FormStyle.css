@@ -8,7 +8,7 @@
   width: 100%;
   margin: auto;
 }
-.container > form {
+.container > .form {
   width: 70%;
   border: 1px solid #dfdfdf;
   padding: 20px;
