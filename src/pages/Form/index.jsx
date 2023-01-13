@@ -1,16 +1,13 @@
 import React from "react";
-// import useForm2 from "./pages/Form2/useForm";
 import FormContainer from "../../components/FormContainer";
 import "./FormStyle.css";
 
 const Form = () => {
-  //Final submit function
   const formLogin = () => {
     console.log("Form submitted successfully!");
     console.log("Form Values are: ", formValue);
   };
 
-  //Custom hook call
   const { handleChange, formValue, errors, handleSubmit } =
     FormContainer(formLogin);
 
