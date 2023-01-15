@@ -1,0 +1,187 @@
+// App.js
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import './App.css';
+import SignInPage from './SignInPage';
+import HomePage from './HomePage';
+import ProjectsPage from './ProjectsPage';
+import AboutPage from './AboutPage';
+import NotFoundPage from './NotFoundPage';
+import { useHistory } from 'react-router-dom';
+
+function App() {
+const [isSignedIn, setIsSignedIn] = useState(false);
+const history = useHistory();
+
+const handleSignIn = () => {
+localStorage.setItem('isSignedIn', true);
+setIsSignedIn(true);
+history.push('/home');
+};
+
+const handleSignOut = () => {
+localStorage.removeItem('isSignedIn');
+setIsSignedIn(false);
+history.push('/');
+};
+
+return (
+<Router>
+<div className="App">
+<Switch>
+<Route exact path="/">
+{isSignedIn ? (
+<HomePage handleSignOut={handleSignOut} />
+) : (
+<SignInPage handleSignIn={handleSignIn} />
+)}
+</Route>
+<Route path="/home">
+<HomePage handleSignOut={handleSignOut} />
+</Route>
+<Route path="/projects">
+<ProjectsPage />
+</Route>
+<Route path="/about">
+<AboutPage />
+</Route>
+<Route path="*">
+<NotFoundPage />
+</Route>
+</Switch>
+</div>
+</Router>
+);
+}
+
+export default App;
+
+// SignInPage.js
+import React, { useState } from 'react';
+
+function SignInPage({ handleSignIn }) {
+const [username, setUsername] = useState('');
+const [password, setPassword] = useState('');
+
+const handleSubmit = e => {
+e.preventDefault();
+if (username === 'admin' && password === 'password') {
+handleSignIn();
+} else {
+alert('Invalid username or password');
+}
+};
+
+return (
+<div className="sign-in-page">
+<form onSubmit={handleSubmit}>
+<label>
+Username:
+<input
+type="text"
+value={username}
+onChange={e => setUsername(e.target.value)}
+/>
+</label>
+<label>
+Password:
+<input
+type="password"
+value={password}
+onChange={e => setPassword(e.target.value)}
+/>
+</label>
+<button type="submit">Sign In</button>
+</form>
+</div>
+);
+}
+
+export default SignInPage;
+
+
+
+
+
+// ____________________
+// HomePage.js
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+function HomePage({ handleSignOut }) {
+return (
+
+
+
+
+deepakpradhan614@gmail.com
+complete above code where you left.
+(
+<div className="home-page">
+<nav>
+<Link to="/">Home</Link>
+<Link to="/projects">Projects</Link>
+<Link to="/about">About</Link>
+<button onClick={handleSignOut}>Sign Out</button>
+</nav>
+<h1>Welcome to my portfolio website!</h1>
+</div>
+);
+}
+
+export default HomePage;
+
+// ProjectsPage.js
+import React from 'react';
+
+function ProjectsPage() {
+return (
+<div className="projects-page">
+<h1>My Projects</h1>
+<ul>
+<li>
+<a href="https://github.com/username/project1">Project 1</a>
+</li>
+<li>
+<a href="https://github.com/username/project2">Project 2</a>
+</li>
+<li>
+<a href="https://github.com/username/project3">Project 3</a>
+</li>
+</ul>
+</div>
+);
+}
+
+export default ProjectsPage;
+
+// AboutPage.js
+import React from 'react';
+
+function AboutPage() {
+return (
+<div className="about-page">
+<h1>About Me</h1>
+<p>
+I am a full-stack developer with experience in React, Node.js, and
+Express. I am passionate about creating clean, efficient, and
+user-friendly websites.
+</p>
+</div>
+);
+}
+
+export default AboutPage;
+
+// NotFoundPage.js
+import React from 'react';
+
+function NotFoundPage() {
+return (
+<div className="not-found-page">
+<h1>404: Page Not Found</h1>
+</div>
+);
+}
+
+export default NotFoundPage;

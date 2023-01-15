@@ -1,0 +1,22 @@
+.box {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  height: 90vh;
+  border-radius: 50px;
+  background: #e0e0e0;
+  /* box-shadow: 25px 25px 50px #9b9b9b, -25px -25px 50px #ffffff; */
+}
+
+.svg {
+  /* border: 1px solid red; */
+  width: auto;
+  bottom: 0;
+  right: -200px;
+  display: flex;
+  position: absolute;
+}

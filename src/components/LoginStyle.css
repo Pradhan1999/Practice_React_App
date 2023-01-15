@@ -1,0 +1,177 @@
+body {
+  font-family: Montserrat, sans-serif;
+  animation: container 2s linear infinite alternate both;
+  width: 100%;
+  height: 100vh;
+}
+@keyframes container {
+  0% {
+    background: #19dcea;
+  }
+  100% {
+    background: #b22cff;
+  }
+}
+
+.wrapper {
+  max-width: 860px;
+  min-width: 300px;
+  margin: 0 auto;
+}
+
+footer {
+  margin-top: 20px;
+  font-size: 14px;
+  padding: 10px 20px;
+}
+
+footer a {
+  text-decoration: none;
+  color: var(--color-4);
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  padding: 0 20px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  width: 100%;
+  height: 260px;
+  background-color: #ee7344;
+  box-shadow: 6px 0 15px rgba(0, 0, 0, 0.4);
+}
+
+.col {
+  flex: 1;
+}
+
+#col-1 {
+  height: 140%;
+  background-color: #fcb900;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.form {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 30px;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+form a {
+  color: black;
+}
+
+input {
+  background-color: #fcb900;
+  border: 2px solid black;
+  border-radius: 3px;
+  line-height: 2;
+  padding: 4px 8px;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 0.3rem 0.3rem #111827;
+}
+
+input:focus {
+  outline: 1px solid transparent;
+  transform: scale(1.005);
+}
+
+input::placeholder {
+  color: black;
+  font-weight: bold;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+}
+
+/* input[type="submit"] {
+  background-color: #fff;
+  align-self: flex-end;
+  cursor: pointer;
+  transition-duration: 0.1s;
+  border: 2px solid black;
+  padding: 1px 21px;
+}
+
+input[type="submit"]:active,
+button:active {
+  transform: scale(1.03);
+} */
+
+label {
+  position: relative;
+}
+
+label span {
+  transition-duration: 0.2s;
+}
+
+label:focus-within span,
+.focus-span {
+  transform: translate(0.25rem, -72%) scale(0.8);
+  background-color: #fcb900;
+}
+
+label span {
+  font-weight: bold;
+  position: absolute;
+  left: 4px;
+  top: 8px;
+  padding: 4px 8px;
+}
+
+.info {
+  padding: 10px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+#sign-up {
+  align-items: flex-start;
+}
+
+button {
+  padding: 8px 42px;
+  background-color: #fff;
+  margin-top: 15px;
+  box-shadow: 0.3rem 0.3rem #111827;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 3px;
+  border: 2px solid #111827;
+  transition-duration: 0.1s;
+  font-size: 16px;
+}
+
+.display-none {
+  display: none;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.order {
+  order: 1;
+}
